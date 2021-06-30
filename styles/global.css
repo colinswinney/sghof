@@ -1,3 +1,32 @@
 body {
     background-color: whitesmoke;
+    font-family: "Baskerville", serif;
+}
+
+main {
+    margin: auto;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.home-member-wrapper {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.home-member-single {
+    width: 50%;
+    text-align: center;
 }

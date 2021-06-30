@@ -2,13 +2,18 @@ import { useRouter } from "next/router"
 import Head from "next/head"
 import Link from "next/link"
 
+import MemberHeader from "../components/single/MemberHeader"
+import MemberFacts from "../components/single/MemberFacts"
+import MemberLinks from "../components/single/MemberLinks"
+import MemberYouTube from "../components/single/MemberYouTube"
+
 import { getAllMembersWithSlug, getMember } from "../lib/api"
 
 export default function Member( {memberData} ) {
     const router = useRouter();
 
     if(!router.isFallback && !memberData?.slug) {
-        return <p>looks like an error</p>
+        return <p>Oops! Looks like an error.</p>
     }
 
     return (
@@ -18,34 +23,53 @@ export default function Member( {memberData} ) {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
+            <p>
+                <Link href="/">
+                    <a>Home</a>
+                </Link>
+            </p>
+
             <main>
                 {router.isFallback ? (
                     <h2>Loading...</h2>
                     ) : (
-                        <article>
-                            {console.log(memberData)}
-                            <h1>{memberData.title}</h1>
-                            {memberData.membersPostType.externalLinks ? 
-                                <ul>
-                                {memberData.membersPostType.externalLinks.map((value, index) => {
-                                    return <li key={index}><a href={value.url}>{value.text}</a></li>
-                                })}
-                                </ul>
-                                :
-                                ``
-                            }
+                    <article>
+                        <MemberHeader data={memberData} />
 
-                            {memberData.membersPostType.spotify ? <div dangerouslySetInnerHTML={{ __html: memberData.membersPostType.spotify }}></div> : ``}
-                            
-                            
-                        </article>
+                        {memberData.membersPostType.facts 
+                            ? 
+                            <MemberFacts data={memberData.membersPostType.facts} />
+                            :
+                            ``
+                        }
+                        
+                        {memberData.membersPostType.externalLinks 
+                            ?
+                            <MemberLinks data={memberData.membersPostType.externalLinks} />
+                            :
+                            ``
+                        }
+                        
+                        {memberData.membersPostType.youtube
+                            ?
+                            <MemberYouTube data={memberData} />
+                            :
+                            ``
+                        }
+                        
+
+                        {memberData.membersPostType.spotify
+                            ?
+                            <div dangerouslySetInnerHTML={{ __html: memberData.membersPostType.spotify }}></div> 
+                            : 
+                            ``
+                        }
+                        
+                        
+                    </article>
                     )
                 }
-                <p>
-                    <Link href="/">
-                        <a>Home</a>
-                    </Link>
-                </p>
+                
             </main>
         </div>
     )

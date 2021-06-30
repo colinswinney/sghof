@@ -1,58 +1,58 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import { getAllMembers } from '../lib/api';
+import Head from 'next/head'
+
+import { getAllMembers } from '../lib/api'
+
+import Layout from '../components/Layout';
+import HomeSingle from '../components/HomeSingle'
 
 // https://dev.to/kendalmintcode/configuring-wordpress-as-a-headless-cms-with-next-js-3p1o
 
 // import styles from '../styles/Home.module.css';
 
-const Members = ({ allMembers: { edges } }) => (
-  <div>
-    <Head>
-      <title>Steel Guitar Hall of Fame</title>
-      <link rel='icon' href='/favicon.ico' />
-    </Head>
+const Members = ({ allMembers: { edges } }) => {
+  // create an array of all years there was an induction
+  let yearArr = []
 
-    <main>
-      <h1>Steel Guitar Hall of Fame</h1>
-      <hr />
-      <section>
-        {edges.map(({ node }) => (
-          <div key={node.id}>
-            <div>
-              {node.featuredImage ?
-                <Link href={`/${node.slug}`}>
-                  <a>
-                    <img
-                    src={node.featuredImage.node.sourceUrl}
-                    alt={node.title}
-                  />
-                  </a>
-                </Link> : ``}
-              
-            </div>
-            <div>
-              <h2>{node.membersPostType.inductionNumber}. {node.title}</h2>
+  for (let i = 0; i < edges.length; i ++) {
+    let inductedYear = edges[i].node.membersPostType.inducted
+    if (!yearArr.includes(inductedYear)) {
+      yearArr.push(inductedYear)
+    }
+  }
 
-              {node.membersPostType.inducted ? <h4>Inducted: {node.membersPostType.inducted}</h4> : ``}
+  return (
+    <Layout>
+      <Head>
+        <title>Steel Guitar Hall of Fame</title>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
 
-              {node.membersPostType.birthplace ? <h4>Born: {node.membersPostType.birthplace}</h4> : ``}
+      <main>
+        <h1>Steel Guitar Hall of Fame</h1>
+        <hr />
 
-              {node.membersPostType.born && node.membersPostType.died ? <h4>{node.membersPostType.born} - {node.membersPostType.died}</h4> : <h4>{node.membersPostType.born}</h4>}
+        {yearArr.map( (year, i ) => {
 
-              <div dangerouslySetInnerHTML={{ __html: node.content }}></div>
-              <Link href={`/${node.slug}`}>
-                <a>More info</a>
-              </Link>
-            </div>
-            <hr />
-          </div>
-        ))}
-      </section>
-      
-    </main>
-  </div>
-);
+          let edgesByYear = edges.filter( edge => edge.node.membersPostType.inducted === year)
+
+          return (
+            <section key={i}>
+              <h2>{year}</h2>
+              {edgesByYear.map( (data, i ) => (
+                <HomeSingle key={i} data={data}/>
+              ))}
+            </section>
+          )
+        } )}
+{/*         
+        <section className="home-member-wrapper">
+          <HomeSingle data={edges}/>
+        </section> */}
+        
+      </main>
+    </Layout>
+  )
+};
 
 export default Members
 
