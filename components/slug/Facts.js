@@ -1,13 +1,14 @@
-const MemberFacts = ({data}) => {
+const Facts = ({data}) => {
     return (
-        <section>
+        <section className="facts">
         <h2>Fast Facts</h2>
         <ul>
             {data.map( (fact, i) => (
                 <li key={i}>
                     {fact.singleFact}
-                    <br />
-                    - <a href={fact.sourceLink}>{fact.sourceTitle}</a>
+                    <div>
+                        - <a href={fact.sourceLink}>{fact.sourceTitle}</a>
+                    </div>
                 </li>
             ))}
         </ul>
@@ -15,4 +16,4 @@ const MemberFacts = ({data}) => {
     )
 }
 
-export default MemberFacts
+export default Facts

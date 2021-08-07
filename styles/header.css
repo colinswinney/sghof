@@ -1,0 +1,71 @@
+.header .container {
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.inlay {
+    background-image: url("../public/images/inlay-oblong.svg");
+    background-size: contain;
+    height: .25rem;
+    border-top: .1rem solid black;
+    border-bottom: .1rem solid black;
+    background-color: #fcdb71;
+}
+
+.inlay.top {
+    margin: 0 0 .5rem;
+}
+
+.inlay.bottom {
+    margin: .5rem 0 0;
+}
+
+.left-wrap,
+.right-wrap {
+    padding-top: .75rem;
+}
+
+.left-wrap a {
+    font-style: normal;
+    text-decoration: none;
+}
+
+.left-wrap a h2 {
+    color: #fafafa;
+    line-height: 1;
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    transition: .2s ease-in-out;
+}
+
+.left-wrap a h3 {
+    font-size: .5rem;
+    margin: -.625rem 0 0;
+    color: #fafafa;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: .2rem;
+    transition: .2s ease-in-out;
+}
+
+.left-wrap a:hover h2,
+.left-wrap a:focus h2,
+.left-wrap a:hover h3,
+.left-wrap a:focus h3{
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+.right-wrap {
+    align-self: center;
+}
+
+.right-wrap h3 {
+    font-size: 1.5rem;
+    color: #fafafa;
+    margin: 0;
+    line-height: 1;
+}

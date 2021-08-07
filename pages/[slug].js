@@ -1,15 +1,18 @@
 import { useRouter } from "next/router"
 import Head from "next/head"
-import Link from "next/link"
 
-import MemberHeader from "../components/single/MemberHeader"
-import MemberFacts from "../components/single/MemberFacts"
-import MemberLinks from "../components/single/MemberLinks"
-import MemberYouTube from "../components/single/MemberYouTube"
+import Layout from "../components/Layout"
+import SlugHeader from "../components/slug/SlugHeader"
+import Facts from "../components/slug/Facts"
+import Links from "../components/slug/Links"
+import YouTube from "../components/slug/YouTube"
+import Spotify from "../components/slug/Spotify"
+import PreviousNext from "../components/slug/PreviousNext"
 
-import { getAllMembersWithSlug, getMember } from "../lib/api"
+import { getAllMembersWithSlug, getAllMembers, getMember } from "../lib/api"
 
-export default function Member( {memberData} ) {
+export default function Member( { allMembers, memberData } ) {
+
     const router = useRouter();
 
     if(!router.isFallback && !memberData?.slug) {
@@ -17,78 +20,79 @@ export default function Member( {memberData} ) {
     }
 
     return (
-        <div>
+        <Layout membersData={allMembers.edges}>
             <Head>
                 <title>{memberData.title}</title>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-
-            <p>
-                <Link href="/">
-                    <a>Home</a>
-                </Link>
-            </p>
-
-            <main>
+            
                 {router.isFallback ? (
                     <h2>Loading...</h2>
-                    ) : (
-                    <article>
-                        <MemberHeader data={memberData} />
+                    ) :
+                    (
+                    <div className={memberData.slug}>
+                        <main className="slug">
+                            <article>
 
-                        {memberData.membersPostType.facts 
-                            ? 
-                            <MemberFacts data={memberData.membersPostType.facts} />
-                            :
-                            ``
-                        }
-                        
-                        {memberData.membersPostType.externalLinks 
-                            ?
-                            <MemberLinks data={memberData.membersPostType.externalLinks} />
-                            :
-                            ``
-                        }
-                        
-                        {memberData.membersPostType.youtube
-                            ?
-                            <MemberYouTube data={memberData} />
-                            :
-                            ``
-                        }
-                        
+                                <SlugHeader data={memberData}/>
 
-                        {memberData.membersPostType.spotify
-                            ?
-                            <div dangerouslySetInnerHTML={{ __html: memberData.membersPostType.spotify }}></div> 
-                            : 
-                            ``
-                        }
-                        
-                        
-                    </article>
+                                {memberData.membersPostType.facts 
+                                    ? 
+                                    <Facts data={memberData.membersPostType.facts} />
+                                    :
+                                    ``
+                                }
+
+                                {memberData.membersPostType.youtube
+                                    ?
+                                    <YouTube data={memberData} />
+                                    :
+                                    ``
+                                }
+                                
+                                {memberData.membersPostType.externalLinks 
+                                    ?
+                                    <Links data={memberData.membersPostType.externalLinks} />
+                                    :
+                                    ``
+                                }
+                                
+                                {memberData.membersPostType.spotify
+                                    ?
+                                    <Spotify data={memberData} />
+                                    : 
+                                    ``
+                                }
+
+                                <PreviousNext allMembers={allMembers} memberData={memberData} />
+
+                            </article>
+                        </main>
+                    </div>
                     )
                 }
                 
-            </main>
-        </div>
+            
+        </Layout>
     )
 }
 
 export async function getStaticPaths() {
-    const allMembers = await getAllMembersWithSlug();
+    const allMembersWithSlug = await getAllMembersWithSlug();
 
     return {
-        paths: allMembers.edges.map(({node}) => `/${node.slug}`) || [],
+        paths: allMembersWithSlug.edges.map(({node}) => `/${node.slug}`) || [],
         fallback: true
     }
 }
 
 export async function getStaticProps({ params }) {
+    const allMembers = await getAllMembers();
     const data = await getMember(params.slug);
 
     return {
         props: {
+            allMembers: allMembers.members,
             memberData: data.member
         }
     }

@@ -1,0 +1,284 @@
+.fretboard {
+    width: 100%;
+    height: 14.28%;
+    background: #111;
+    position: absolute;
+    border: 0.0625rem solid #f4f1de;
+    box-sizing: border-box;
+}
+
+.fret {
+    height: 100%;
+    width: 0.0625rem;
+    background: #f4f1de;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -0.3125px;
+}
+
+.one {
+    left: 7.48%;
+}
+
+.two {
+    left: 14.54%;
+}
+
+.three {
+    left: 21.21%;
+}
+
+.four {
+    left: 27.5%;
+}
+
+.five {
+    left: 33.44%;
+}
+
+.six {
+    left: 39.1%;
+}
+
+.seven {
+    left: 44.34%;
+}
+
+.eight {
+    left: 49.33%;
+}
+
+.nine {
+    left: 54.05%;
+}
+
+.ten {
+    left: 58.5%;
+}
+
+.eleven {
+    left: 62.7%;
+}
+
+.twelve {
+    left: 66.66%;
+}
+
+.thirteen {
+    left: 70.41%;
+}
+
+.fourteen {
+    left: 73.94%;
+}
+
+.fifteen {
+    left: 77.27%;
+}
+
+.sixteen {
+    left: 80.42%;
+}
+
+.seventeen {
+    left: 83.39%;
+}
+
+.eighteen {
+    left: 86.19%;
+}
+
+.nineteen {
+    left: 88.83%;
+}
+
+.twenty {
+    left: 91.33%;
+}
+
+.twentyone {
+    left: 93.69%;
+}
+
+.twentytwo {
+    left: 95.92%;
+}
+
+.twentythree {
+    left: 98.01%;
+}
+
+.twentyfour {
+    left: 100%;
+}
+
+.fretboard svg {
+    fill: #f4f1de;
+    margin: auto;
+    position: absolute;
+    transform: rotate(90deg);
+    top: 0;
+    bottom: 0;
+}
+
+.fretboard .heart,
+.fretboard .diamond {
+    fill: #BA2D0B;
+}
+
+.fretboard .fret-3 {
+    left: 15.73%;
+    width: 4.5%;
+}
+
+.fretboard .fret-5 {
+    left: 28.65%;
+    width: 3.75%;
+}
+
+.fretboard .fret-7 {
+    left: 40.22%;
+    width: 3%;
+}
+
+.fretboard .fret-9 {
+    left: 50.2%;
+    width: 3.25%;
+}
+
+.fretboard .fret-12 {
+    left: 62.75%;
+    width: 3.96%;
+    height: 100%;
+    position: absolute;
+}
+
+.fretboard .fret-12 svg {
+    position: absolute;
+    width: 55%;
+    height: 100%;
+    left: 0;
+    right: 0;
+}
+
+.fretboard .fret-12 .heart {
+    top: -60%;
+}
+
+.fretboard .fret-12 .spade {
+    top: -20%;
+}
+
+.fretboard .fret-12 .diamond {
+    top: 20%;
+    width: 45%;
+}
+
+.fretboard .fret-12 .club {
+    top: 60%;
+}
+
+.fretboard .fret-15 {
+    left: 74.53%;
+    width: 2.125%;
+}
+
+.fretboard .fret-17 {
+    left: 81.1%;
+    width: 1.75%;
+}
+
+.fretboard .fret-19 {
+    left: 86.9%;
+    width: 1.25%;
+}
+
+.fretboard .fret-21 {
+    left: 91.88%;
+    width: 1.5%;
+}
+
+.fretboard .fret-24 {
+    left: 98.06%;
+    width: 1.99%;
+    height: 100%;
+    position: absolute;
+}
+
+.fretboard .fret-24 svg {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 0;
+    right: 0;
+}
+
+.fretboard .fret-24 .heart {
+    top: -57.5%;
+}
+
+.fretboard .fret-24 .spade {
+    top: -20%;
+}
+
+.fretboard .fret-24 .diamond {
+    top: 20%;
+    width: 45%;
+}
+
+.fretboard .fret-24 .club {
+    top: 57.5%;
+}
+
+.string {
+    width: 100%;
+    height: 0.0625rem;
+    position: absolute;
+    background-color: #7a7f80;
+}
+
+.s1 {
+    top: 5%;
+    background-color: #43494a;
+}
+
+.s2 {
+    top: 15%;
+    background-color: #43494a;
+}
+
+.s3 {
+    top: 25%;
+    background-color: #43494a;
+}
+
+.s4 {
+    top: 35%;
+    background-color: #43494a;
+}
+
+.s5 {
+    top: 45%;
+    background-color: #43494a;
+}
+
+.s6 {
+    top: 55%;
+}
+
+.s7 {
+    top: 65%;
+}
+
+.s8 {
+    top: 75%;
+}
+
+.s9 {
+    top: 85%;
+}
+
+.s10 {
+    top: 95%;
+}
