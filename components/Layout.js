@@ -1,4 +1,4 @@
-import Nav from "./Nav"
+import Nav from "./nav"
 import Header from "./Header"
 import Footer from "./Footer"
 
@@ -25,8 +25,9 @@ const Layout = ({ membersData, children}) => {
 
     return (
         <div>
-            <Nav titleSlugArr={titleSlugArr}/>
+            
             <Header />
+            <Nav titleSlugArr={titleSlugArr}/>
             {children}
             <Footer />
         </div>

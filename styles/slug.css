@@ -10,7 +10,7 @@ main.slug section {
 .name-wrap {
     padding: 1rem;
     margin: 0 auto .25rem;
-    color: #BA2D0B;
+    color: var(--color-link);
 }
 
 .name-wrap h1 {
@@ -25,7 +25,7 @@ main.slug section {
     max-height: .875rem;
     max-width: .875rem;
     margin: 0 .25rem;
-    fill: #BA2D0B;
+    fill: var(--color-link);
 }
 
 .name-wrap .spade {

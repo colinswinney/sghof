@@ -1,4 +1,5 @@
 import '../styles/normalize.css'
+import '../styles/vars.css'
 import '../styles/global.css'
 import '../styles/nav.css'
 import '../styles/header.css'

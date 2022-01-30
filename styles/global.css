@@ -6,10 +6,10 @@ html {
 }
 
 body {
-    background-color: #f8f8f8;
+    background-color: var(--color-white);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 100%;
-    color: #222;
+    color: var(--color-dark);
 }
 
 body.nav-menu-active {
@@ -65,14 +65,14 @@ p, ul, ol {
 
 a { 
     text-decoration: none;
-    color: #BA2D0B; /* BA2D0B */
+    color: var(--color-link);
     font-weight: bold;
     font-style: italic;
 }
 
 a:hover,
 a:focus {
-    color: #670000;
+    color: var(--color-link-hover);
     text-decoration: underline;
 }
 
@@ -90,7 +90,7 @@ a, img, svg, .btn {
     background: -moz-linear-gradient(135deg, hsla(0, 0%, 7%, 1) 0%, hsla(0, 0%, 13%, 1) 51%, hsla(0, 0%, 7%, 1) 100%);
     background: -webkit-linear-gradient(135deg, hsla(0, 0%, 7%, 1) 0%, hsla(0, 0%, 13%, 1) 51%, hsla(0, 0%, 7%, 1) 100%);
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#111111", endColorstr="#222222", GradientType=1 );
-    color: #fafafa;
+    color: var(--color-white);
 }
 
 .text-left {
@@ -130,8 +130,8 @@ a, img, svg, .btn {
 
 .btn {
     margin: 0;
-    background-color: #BA2D0B;
-    border: .0625rem solid #BA2D0B;
+    background-color: var(--color-link);
+    border: .0625rem solid var(--color-link);
     padding: .3rem .75rem;
     cursor: pointer;
     color: #fafafa;
@@ -144,9 +144,9 @@ a, img, svg, .btn {
 
 .btn:hover,
 .btn:focus {
-    background: #670000;
+    background: var(--color-link-hover);
     color: #fafafa;
-    border-color: #670000;
+    border-color: var(--color-link-hover);
     text-decoration: none;
 }
 
@@ -209,8 +209,8 @@ main.search {
 
 .search-form .btn:hover,
 .search-form .btn:focus {
-    background-color: #670000;
-    border-color: #670000;
+    background-color: var(--color-link-hover);
+    border-color: var(--color-link-hover);
 }
 
 .search-form .btn:hover svg,

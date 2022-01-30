@@ -124,7 +124,7 @@
 
 .fretboard .heart,
 .fretboard .diamond {
-    fill: #BA2D0B;
+    fill: var(--color-link);
 }
 
 .fretboard .fret-3 {

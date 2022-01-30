@@ -44,7 +44,7 @@
 
 .nav .search-link-wrap a:hover,
 .nav .search-link-wrap a:focus {
-    background-color: #670000;
+    background-color: var(--color-link-hover);
 }
 
 .nav .search-link-wrap a:hover svg,

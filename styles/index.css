@@ -1,6 +1,6 @@
 .index-header {
     margin: 2rem auto 1rem;
-    background: #f4f1de;
+    background: var(--color-off-white);
     width: calc(100vw - 4rem);
     max-width: 60rem;
     box-shadow: 0 .4rem .8rem 0 rgba(17,17,17,0.2);
@@ -12,15 +12,15 @@
     margin: auto;
     text-align: left;
     padding: 3.5vw 0 0;
-    background: #f4f1de;
-    color: #BA2D0B;
+    background: var(--color-off-white);
+    color: var(--color-link);
     position: relative;
     border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .top-wrap svg {
     position: absolute;
-    fill: #BA2D0B;
+    fill: var(--color-link);
     height: 3.5vw;
     width: 3.5vw;
     filter: drop-shadow(.0625vw .0625vw 0 #870000) drop-shadow(-.125vw .125vw 0 #870000);
@@ -141,8 +141,8 @@
 .bottom-wrap {
     margin-top: 7vw;
     padding: 6.25vw 2.5vw 5vw;
-    background-color: #BA2D0B;
-    color: #f4f1de;
+    background-color: var(--color-link);
+    color: var(--color-off-white);
     border-radius: 0 0 0.5rem 0.5rem;
 }
 
@@ -168,7 +168,7 @@
     width: 90%;
     position: relative;
     transform: rotate(5deg);
-    border: .125rem solid #f4f1de;
+    border: .125rem solid var(--color-off-white);
     border-radius: 100%;
     filter: drop-shadow(-0.0625vw 0.0625vw 0 #870000) drop-shadow(-0.125vw 0.125vw 0 #870000) drop-shadow(-0.1875vw 0.1875vw 0 #870000);
 }
@@ -180,7 +180,7 @@
     bottom: -.333rem;
     left: -.333rem;
     right: -.333rem;
-    border: .125rem solid #f4f1de;
+    border: .125rem solid var(--color-off-white);
     border-radius: 100%;
 }
 
@@ -201,7 +201,7 @@
     margin: .3125rem 0;
     font-family: 'Goblin One', serif;
     font-size: 2vw;
-    color: #f4f1de; /* E3432D */
+    color: var(--color-off-white); /* E3432D */
     transform: rotate(-2deg);
 }
 
@@ -215,7 +215,7 @@
     vertical-align: middle;
     height: 1.5vw;
     width: 1.5vw;
-    fill: #f4f1de;
+    fill: var(--color-off-white);
     filter: drop-shadow(-0.125vw 0.125vw 0 #870000) ;
 }
 
@@ -279,7 +279,7 @@
 .home-member-image img {
     border-radius: .3125rem;
     border-radius: 100%;
-    width: 6.25rem;
+    width: 6.25rem; /* 9.375 */
     height: 6.25rem;
 }
 
